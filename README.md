@@ -2,6 +2,10 @@
 
 A scraper that keeps working when websites change, stores price history, and tells you **only what changed**, delivered to Slack every morning by an n8n workflow.
 
+![A /run result: 20 items scraped, 2 price changes and 1 stock change, with the Slack alert text](docs/run-report.png)
+
+*A real `/run` against books.toscrape.com; to show alerts, a few stored prices and stock flags were edited first so the scraper detects them as changes.*
+
 Target: [books.toscrape.com](https://books.toscrape.com), a public sandbox built for scraping practice. The same pattern runs in production for shipping-line container tracking.
 
 ```
