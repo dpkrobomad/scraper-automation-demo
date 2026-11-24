@@ -1,0 +1,16 @@
+services:
+  scraper:
+    build: .
+    env_file: .env
+    volumes: ["./data:/app/data"]
+    ports: ["8000:8000"]
+  n8n:
+    image: n8nio/n8n:latest
+    ports: ["5678:5678"]
+    environment:
+      - SCRAPER_URL=http://scraper:8000
+      - SCRAPER_API_KEY=${API_KEY}
+      - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
+    volumes: ["n8n_data:/home/node/.n8n"]
+volumes:
+  n8n_data:
